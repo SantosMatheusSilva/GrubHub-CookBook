@@ -1,9 +1,11 @@
 import React from "react"
 import githubLogo from "../images/github-logo.png"
+import { VscGithubInverted } from "react-icons/vsc";
 function Footer (){
     return(
         <div className="footer">
-             <a href="https://github.com/dannielcosta/CookBook"><img className=""src={githubLogo} alt="GitHub" />Check the Repository</a>
+            
+             <a href="https://github.com/SantosMatheusSilva/GrubHub-CookBook"><VscGithubInverted className="github-logo" style={{width: "30px", height: "30px"}} /><p>Check the code.</p></a>
             </div>
     )
 }

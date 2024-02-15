@@ -20,7 +20,7 @@ function AddRecipe(props) {
             servings,
         };
 
-        props.addRecipe(newRecipe); //<<<<<<<<<<<<<<<<<<<<<<
+        props.AddRecipe(newRecipe); //<<<<<<<<<<<<<<<<<<<<<<
 
         
         setName("");
@@ -33,9 +33,10 @@ function AddRecipe(props) {
     return (
         <section className='AddRecipe-container'>
             <h2>
-                Add a new recipe
+                Add a New Recipe
             </h2>
             <form onSubmit={handleSubmit} className="AddRecipe-form" >
+                <div className='form-input-div'>
 
                 <label>
                     Recipe Name:
@@ -78,8 +79,11 @@ function AddRecipe(props) {
                 value={servings} 
                 onChange={(e) => setServings(e.target.value)} />
 
+                </div>
+                <div>
                 <button type="submit">Add Recipe</button>
 
+                </div>
             </form>
         </section>
     )

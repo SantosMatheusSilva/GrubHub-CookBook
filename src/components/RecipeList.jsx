@@ -3,7 +3,7 @@ import recipes from '../data/recipes.json';
 import React from 'react';
 import RecipeDetailsPage from '../pages/RecipeDetailsPage';
 import AddRecipe from '../components/AddRecipe';
-
+import { MdDelete } from "react-icons/md";
 function RecipeList() {
     const [cook, setCook] = useState(recipes);
 
@@ -15,7 +15,7 @@ function RecipeList() {
     function addNewRecipe(newCook) {
         /* setCook([...cook, setCook]); */
         const updatedRecipeList = [...cook, newCook];
-        setCook([...cook, updatedRecipeList]);
+        setCook(updatedRecipeList); //<<<<<< updatedRecipeList is the new array with the new recipe.
     }
 
 
@@ -26,7 +26,8 @@ function RecipeList() {
             <div>
                 <AddRecipe AddRecipe={addNewRecipe} />
             </div>
-
+            <section>
+            <h2>My Recipes</h2>
             <div className="RecipeList">
                 {cook.map((recipe) => (
                     <div key={recipe.id} className="Recipe-card" style={{ backgroundImage: `url(${recipe.image})` }}>
@@ -35,11 +36,12 @@ function RecipeList() {
                         <div className="Recipe-card-info">
                             <p><strong>Calories: </strong>{recipe.calories} </p>
                             <p><strong>Servings: </strong> {recipe.servings}</p>
-                            <button onClick={() => deleteRecipe(recipe.id)}>X</button>
+                            <button onClick={() => deleteRecipe(recipe.id)}><MdDelete style={{width: "30px", height: "30px", color: "black"}}/></button>
                         </div>
                     </div>
                 ))}
             </div>
+            </section>
         </div>
     );
 }

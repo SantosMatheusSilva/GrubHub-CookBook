@@ -11,12 +11,6 @@ import RecipeDetailsPage from "./RecipeDetailsPage";
 
 function Dashboard(){
 
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
-
-  // Function to handle the selection of a recipe
-  const handleRecipeSelection = (recipe) => {
-      setSelectedRecipe(recipe);
-  };
 
     return(
         <section>
