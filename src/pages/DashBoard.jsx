@@ -5,67 +5,36 @@ import RecipeList from "../components/RecipeList";
 import recipes from "../data/recipes.json";
 import { useState } from 'react';
 import AddRecipe from "../components/AddRecipe";
+import RecipeDetailsPage from "./RecipeDetailsPage";
 
 
-// >>>>> Adicionar condicional rendering to the function.
-// >>>>> starter container: if recipe.type === "starter" => render starter recipe cards (in carrousel)
-// >>>>> main-course container: if recipe.type === "main-course" => render main course recipes card (in carrousel)
-// >>>>> dessert container: if recipe.type === "dessert" => render desserts  recipes cards (in carrousel)
 
 function Dashboard(){
 
-   /*  const [recipe, setRecipe] = useState(recipes);
-    const filterByType = (type) => {
-        const filteredRecipe = recipe.filter((recipe) => recipe.type === type);
-        setRecipe(filteredRecipe);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-    } */
-    const starterRecipes = recipes.filter((recipe) => recipe.type === "starter");
-    const mainCourseRecipes = recipes.filter((recipe) => recipe.type === "main-course");
-    const dessertRecipes = recipes.filter((recipe) => recipe.type === "dessert");
+  // Function to handle the selection of a recipe
+  const handleRecipeSelection = (recipe) => {
+      setSelectedRecipe(recipe);
+  };
 
     return(
         <section>
-         <div>
-          <AddRecipe/>
-        </div>
 
-        <div>
-            <h2>Starter Recipes</h2>
-            <RecipeList recipes = {starterRecipes}></RecipeList>
-        </div>
-         
+          <div >
+          <RecipeList />
+          {/* <RecipeDetailsPage  key = {recipeList.id} recipe = {recipeList}/> */}
+          </div>
         </section>
-     /* 
-       <div>
-        {recipe.map((recipe) => {
-            return(
-               <div key={recipe.id}>
-                <div>
-                {recipe.type === "starter" ? <RecipeList recipe={recipe.id} />: null}
-                </div>
-                <div>
-                {recipe.type === "main-course" ? <RecipeList recipe={recipe.id} />: null}
-                </div>
-                <div>
-                {recipe.type === "dessert" ? <RecipeList recipe={recipe.id} />: null}
-                </div>
-               </div> 
-            );
-        })}
-       </div>
-     
-     */
-    
-
-      /* 
-        <div>
-            <RecipeList/>
-        </div>
-      */
+   
     )
 
     
 }
 
 export default Dashboard
+
+
+
+
+

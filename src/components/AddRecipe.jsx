@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {AiOutlinePicture} from "react-icons/ai";
+
 
 
 function AddRecipe(props) {
@@ -7,76 +7,81 @@ function AddRecipe(props) {
     const [name, setName] = useState("");
     const [calories, setCalories] = useState("");
     const [servings, setServings] = useState("");
-    const [ingredients, setIngredients] = useState("");
-    const [instructions, setInstructions] = useState("");
     const [image, setImage] = useState("");
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
 
-        /* Prevent the default action of a form submission (like refreshing the page) */
-        /* Why? with the refresh of a page the state values go to original */
-        e.preventDefault(); 
-    
-        // Create a new object (recipe) with the values from the form
-        const newRecipe = {name, calories, servings, ingredients, instructions};
+        e.preventDefault();
 
-        // This way we add a new recipe to the recipe list parent component.
-        props.addNewRecipe(newRecipe);
+        const newRecipe = {
+            id : Math.random().toString(16).slice(2),
+            name,
+            calories,
+            servings,
+        };
 
-        // Reset the state, so I dont have to delete all the fields if I want to create a new movie.
+        props.addRecipe(newRecipe); //<<<<<<<<<<<<<<<<<<<<<<
+
+        
         setName("");
         setCalories("");
         setServings("");
-        setIngredients("");
-        setInstructions("");
         setImage("");
     }
 
 
     return (
-       <section className='AddRecipe-container'>
-         <h2>
-            Add a new recipe
+        <section className='AddRecipe-container'>
+            <h2>
+                Add a new recipe
             </h2>
-        <form className="AddRecipe-form" onSubmit={handleSubmit}>
-            <label>
-                Recipe Name:
-            </label>
-            <input className="input-name" type="text" name="name" value= {name} onChange={(e)=> setName(e.target.value)}/>
-            
-            <label>
-               Calories:
-            </label>
-            <input className="input-calories" type="number" name="calories" value= {calories} onChange={(e)=> setCalories(e.target.value)}/>
+            <form onSubmit={handleSubmit} className="AddRecipe-form" >
 
-            <label>
-                Picture:
-            </label>
-            <input type="file" name="img" value= {image}  onChange={(e)=> setImage(e.target.value)}  />
+                <label>
+                    Recipe Name:
+                </label>
 
-            <label>
-                Servings:
-            </label>
-            <input className="input-servings" type="number" name="servings" value= {servings} onChange={(e)=> setServings(e.target.value)}/>
+                <input 
+                className="input-name" 
+                type="text" 
+                name="name" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} />
 
-           {/* 
-            <label>
-                Ingredients:
-            </label>
-            <input className="input-ingredients" type="text" name="ingrredients" value= {ingredients} onChange={(e)=> setIngredients(e.target.value)}/>
+                <label>
+                    Calories:
+                </label>
+                <input 
+                className="input-calories" 
+                type="number" 
+                name="calories" 
+                value={calories} 
+                onChange={(e) => setCalories(e.target.value)} />
 
-           */}
-            <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
-            <label>
-                Instructions:
-            </label>
-            <input className="input-instructions" type="text-area" name="instructions" value= {instructions} onChange={(e)=> setInstructions(e.target.value)}/>
+                <label>
+                    Picture:
+                </label>
+                
+                <input 
+                type="file" 
+                name="img" 
+                value={image} 
+                onChange={(e) => setImage(e.target.value)} />
 
-            
-            <button type= "submit">Add Recipe</button>
+                <label>
+                    Servings:
+                </label>
 
-        </form>
-       </section>
+                <input 
+                className="input-servings" 
+                type="number" name="servings" 
+                value={servings} 
+                onChange={(e) => setServings(e.target.value)} />
+
+                <button type="submit">Add Recipe</button>
+
+            </form>
+        </section>
     )
 }
 

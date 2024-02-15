@@ -6,8 +6,9 @@ import Footer from './components/Footer';
 import Dashboard from './pages/DashBoard';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
-import AddNewRecipe from './pages/AddNewRecipe';
+import AddRecipe from './components/AddRecipe';
 import AllRecipes from './pages/AllRecipes';
+import RecipeDetailsPage from './pages/RecipeDetailsPage';
 
 ////// >>>>>>> COPY <<<<<<<< //////////
 
@@ -30,7 +31,11 @@ function App() {
         <Route path="/about" element= {<About/>} />
 
         {/* Route for Add New Recipe Page */}
-        <Route path="/AddNewRecipe" element= {<AddNewRecipe/>} />
+        {/* <Route path="/AddNewRecipe" element= {<AddNewRecipe/>} />
+ */}
+
+        {/* Route for Recipe Details Page */}
+        <Route path="/recipes/:id" element= {<RecipeDetailsPage/>} />
 
         {/* Route for All Recipes Page */}
         <Route path="/AllRecipes" element= {<AllRecipes/>}  />
