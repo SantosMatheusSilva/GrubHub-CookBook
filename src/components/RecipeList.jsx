@@ -4,6 +4,7 @@ import React from 'react';
 import RecipeDetailsPage from '../pages/RecipeDetailsPage';
 import AddRecipe from '../components/AddRecipe';
 import { MdDelete } from "react-icons/md";
+import { Link } from 'react-router-dom';
 function RecipeList() {
     const [cook, setCook] = useState(recipes);
 
@@ -30,6 +31,7 @@ function RecipeList() {
             <h2>My Recipes</h2>
             <div className="RecipeList">
                 {cook.map((recipe) => (
+                    <Link to={`/RecipesDetailsPage/${recipe.id}`} key={recipe.id}>
                     <div key={recipe.id} className="Recipe-card" style={{ backgroundImage: `url(${recipe.image})` }}>
                         <h3>{recipe.name}</h3>
                         {/*  <img src={recipe.image} alt={recipe.name} /> */}
@@ -39,6 +41,7 @@ function RecipeList() {
                             <button onClick={() => deleteRecipe(recipe.id)}><MdDelete style={{width: "30px", height: "30px", color: "black"}}/></button>
                         </div>
                     </div>
+                    </Link>
                 ))}
             </div>
             </section>

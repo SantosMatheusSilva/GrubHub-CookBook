@@ -1,7 +1,8 @@
+import { useParams } from "react-router-dom";
 
 function RecipeDetailsPage(props) {
 
-        const {recipe} = props
+        const {recipe} = props;
 
     return (
         <div>

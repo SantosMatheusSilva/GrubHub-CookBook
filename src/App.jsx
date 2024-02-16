@@ -35,7 +35,7 @@ function App() {
  */}
 
         {/* Route for Recipe Details Page */}
-        <Route path="/recipes/:id" element= {<RecipeDetailsPage/>} />
+        <Route path="/RecipeDetailsPage/:id" element= {<RecipeDetailsPage/>} />
 
         {/* Route for All Recipes Page */}
         <Route path="/AllRecipes" element= {<AllRecipes/>}  />
