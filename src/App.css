@@ -295,3 +295,37 @@ body{
   color: black;
   font-size: 50px;
 }
+
+
+.RecipeDetail{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  width:500px;
+  height: 400px;
+  box-shadow: 5px 10px  #FBC41B;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  }
+
+  .about-li , .about-gh {
+    height:40px;
+    width:40px;
+  }
+  
+  .Developers{
+    display:flex;
+    flex-direction: row;
+    gap:40px;
+  }
+
+  .dev1 , .dev2{
+    display:flex;
+    flex-direction: column;
+  }
