@@ -14,7 +14,7 @@ function RecipeDetailsPage(props) {
                     <p>{recipe.servings}</p>
                     <p>{recipe.type}</p>  
                 </div>
-            </section>
+            </article>
         </div>
     );
 }
