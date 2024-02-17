@@ -4,7 +4,7 @@ import LIlogo from '../images/LinkedIn-logo.png'
 function About() {
     return (
         <section className="About">
-            <div>
+            <div className='About-container'>
                 <h1>About</h1>
                 <p>
                     GrubHub Recipe Book is the ultimate digital cooking companion for culinary enthusiasts who love to create, store, and share their favorite recipes.
