@@ -4,6 +4,7 @@ import React from 'react';
 import AddRecipe from '../components/AddRecipe';
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { PiForkKnifeBold } from "react-icons/pi";
 function RecipeList() {
     const [cook, setCook] = useState(recipes);
     const deleteRecipe = (recipeId) => {
@@ -24,19 +25,19 @@ function RecipeList() {
                 <h2>My Recipes</h2>
                 <div className="RecipeList">
                     {cook.map((recipe) => (
-                        <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                             <div className="Recipe-card" style={{ backgroundImage: `url(${recipe.image})` }}>
+                                <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                                 <h3>{recipe.name}</h3>
-                                {/*  <img src={recipe.image} alt={recipe.name} /> */}
+                                </Link>
                                 <div className="Recipe-card-info">
+                                    <p><strong>{recipe.type}</strong></p>
                                     <p><strong>Calories: </strong>{recipe.calories} </p>
-                                    <p><strong>Servings: </strong> {recipe.servings}</p>
+                                    <p><strong>Servings: </strong> <PiForkKnifeBold /></p>
                                     <button onClick={() => deleteRecipe(recipe.id)}>
                                         <MdDelete style={{ width: "30px", height: "30px", color: "black" }} />
                                     </button>
                                 </div>
                             </div>
-                        </Link>
                     ))}
                 </div>
             </section>

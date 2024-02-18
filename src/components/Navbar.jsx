@@ -7,10 +7,12 @@ import { SiCodechef } from "react-icons/si";
 function Navbar(){
     return (
         <div className = "header">
-                <SiCodechef style={{width: "60px", height: "80px", color: "black"}}/>
+             <div className="logo">
+                <SiCodechef style={{width: "60px", height: "80px", color: "grey"}}/>
                  
                  <h1>GrubHub.</h1>
                  
+             </div>
             <div className="search">
                 <button><FcSearch style={{width: "30px", height: "30px"}}/></button>
             </div>

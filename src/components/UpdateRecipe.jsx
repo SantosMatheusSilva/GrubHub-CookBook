@@ -66,7 +66,22 @@ function UpdateRecipe(props) {
             </label>
             <input type="img" name="img" value={updatedRecipe.image} onChange={recipeUpdate}  />
 
+           <div className='textarea'>
+            <div className='textarea-ingredients'>
+            <label>
+                Ingredients:
+            </label>
+            <textarea type="text" name="ingredients" rows={10} cols={80} value={updatedRecipe.ingredients} onChange={recipeUpdate}  />
+
+            </div>
+            <div className='textarea-instructions'>
+            <label>
+                Instructions:
+            </label>
+            <textarea type="text" name="instructions" rows={10} cols={80} value={updatedRecipe.instructions} onChange={recipeUpdate}  />
+            </div>
            </div>
+            </div>
             <button type='submit'>Update</button>
            </form>
 
